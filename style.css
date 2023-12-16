@@ -1,0 +1,36 @@
+.style {
+    width: 100%;
+}
+
+
+.btn-btn-primary{
+    width: 100%;
+    border-radius: 10px ;
+}
+
+.footer{
+    width: auto;
+}
+
+.footer2{
+    width: auto;
+}
+
+body{
+    background-clip: url("/bg.mp4");
+    background-image: url('/bgg.jpeg') ;
+
+}
+
+/* 
+element.style {
+    font-size: 40px;
+}
+.fa{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} */
