@@ -19,17 +19,16 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex">
-            <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
-          </form>
-        </div>
+        <form class="d-flex">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
       </div>
     </nav>
 
     <div id="translucentcard">
       <div class="container">
-        <h1 class="my-4 text-center">Weather for <span id="cityName"></span></h1>
+        <h1 class="my-4 text-center">Weather for <span id="city_name"></span></h1>
         <main>
           <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col">
@@ -39,12 +38,12 @@
                 </div>
                 <div class="card-body">
                   <h1 class="card-title pricing-card-title">
-                    <small class="text-body-secondary fw-light"><span id="temp2"> &#8451;</span></small>
+                    <small class="text-body-secondary fw-light"><span id="temp2"></span> &#8451;</small>
                   </h1>
                   <ul class="list-unstyled mt-3 mb-4">
-                    <li>temparature is <span id="temp"></span></li>
-                    <li>Min temperature is <span id="min_temp"></span></li>
-                    <li>Max temperature is <span id="max_temp"></span></li>
+                    <li>temparature : <span id="temp"></span></li>
+                    <li>Min temperature : <span id="min_temp"></span></li>
+                    <li>Max temperature : <span id="max_temp"></span></li>
                   </ul>
                 </div>
               </div>
@@ -60,9 +59,9 @@
                   <span id="humidity2"></span><small class="text-body-secondary fw-light"> %</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                  <li>Wind speed is <span id="wind_speed"></span></li>
-                  <li>Humidity is <span id="humidity"></span></li>
-                  <li>Feels Like is <span id="feels_like"></span></li>
+                  <li>Cloud Cpt : <span id="cloud_pct"></span></li>
+                  <li>Humidity : <span id="humidity"></span></li>
+                  <li>Feels Like : <span id="feels_like"></span></li>
                 </ul>
               </div>
             </div>
@@ -75,13 +74,13 @@
               </div>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title">
-                  <span id="wind_degrees2"></span><small class="text-body-secondary fw-light"> Km/hr</small>
+                  <span id="wind_speed2"></span><small class="text-body-secondary fw-light"> Km/hr</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                  <li>Cloud Cpt is <span id="cloud_pct"></span></li>
-                  <li>Wind degree is <span id="wind_degrees"></span></li>
-                  <li>Sunrise Time is <span id="sunrise"></span></li>
-                  <li>Sunset Time is <span id="sunset"></span></li>
+                  <li>Wind speed : <span id="wind_speed"></span></li>
+                  <li>Wind degree : <span id="wind_degrees"></span></li>
+                  <li>Sunrise Time : <span id="sunrise"></span></li>
+                  <li>Sunset Time : <span id="sunset"></span></li>
                 </ul>
               </div>
             </div>
