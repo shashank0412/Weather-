@@ -1,205 +1,92 @@
 <!DOCTYPE html>
 <html lang="en" >
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <title>Wheather Forecast</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
 
-<body>
-<video autoplay muted loop id="myVideo">
-<source src="res/bg.mp4" type="video/mp4">
-</video>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <title>Wheather Forecast</title>
+  </head>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Weather Forecast</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="res/bg.mp4" type="video/mp4">
+    </video>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="d-flex">
+          <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div id="translucentcard">
+      <div class="container">
+        <h1 class="my-4 text-center">Weather for <span id="city_name"></span></h1>
+        <main>
+          <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Temparature</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">
+                    <small class="text-body-secondary fw-light"><span id="temp2"></span> &#8451;</small>
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>temparature : <span id="temp"></span></li>
+                    <li>Min temperature : <span id="min_temp"></span></li>
+                    <li>Max temperature : <span id="max_temp"></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Humidity</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="humidity2"></span><small class="text-body-secondary fw-light"> %</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Cloud Cpt : <span id="cloud_pct"></span></li>
+                  <li>Humidity : <span id="humidity"></span></li>
+                  <li>Feels Like : <span id="feels_like"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm ">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Wind And Sun</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="wind_speed2"></span><small class="text-body-secondary fw-light"> Km/hr</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind speed : <span id="wind_speed"></span></li>
+                  <li>Wind degree : <span id="wind_degrees"></span></li>
+                  <li>Sunrise Time : <span id="sunrise"></span></li>
+                  <li>Sunset Time : <span id="sunset"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-  </div>
-</nav>
-
-<div id="polina">
-  <div class="container">
-    <main>
-      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Free</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">
-                <small class="text-body-secondary fw-light"><span id="temp2"> &#8451;</span></small>
-              </h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>temparature is<span id="temp"></span></li>
-                <li>Min temperature is<span id="min_temp"></span></li>
-                <li>Max temperature is<span id="max_temp"></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Humidity</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">
-                <span id="humidity2"></span><small class="text-body-secondary fw-light"> %</small>
-              </h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Wind speed is<span id="wind_speed"></span></li>
-                <li>Humidity is<span id="humidity"></span></li>
-                <li>Feels Like<span id="feels_like"></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm ">
-            <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Wind And Sun</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">
-                <span id="wind_degrees2"></span><small class="text-body-secondary fw-light"> Km/hr</small>
-              </h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Wind degree is<span id="wind_degrees"></span></li>
-                <li>Sunrise Time is<span id="sunrise"></span></li>
-                <li>Sunset Time is<span id="sunset"></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <h2 class="display-6 text-center mb-4">Other cities Weather</h2>
-
-      <div class="table-responsive">
-        <table class="table text-center">
-          <thead>
-            <tr>
-              <th style="width: 34%"></th>
-              <th style="width: 22%">cloud_pct</th>
-              <th style="width: 22%">temp</th>
-              <th style="width: 22%">feels_like</th>
-              <th style="width: 22%">humidity</th>
-              <th style="width: 22%">min_temp</th>
-              <th style="width: 22%">max_temp</th>
-              <th style="width: 22%">wind_speed</th>
-              <th style="width: 22%">wind_degrees</th>
-              <th style="width: 22%">sunrise</th>
-              <th style="width: 22%">sunset</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row" class="text-start">Chennai</th>
-              <td>20</td>
-              <td>31</td>
-              <td>38</td>
-              <td>84</td>
-              <td>31</td>
-              <td>31</td>
-              <td>4.12</td>
-              <td>200</td>
-              <td>1684800729</td>
-              <td>1684846759</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start">Pune</th>
-              <td>14</td>
-              <td>29</td>
-              <td>29</td>
-              <td>44</td>
-              <td>29</td>
-              <td>29</td>
-              <td>4.07</td>
-              <td>271</td>
-              <td>1684801734</td>
-              <td>1684848837</td>
-            </tr>
-          </tbody>
-
-          <tbody>
-            <tr>
-              <th scope="row" class="text-start">Rajasthan</th>
-              <td>21</td>
-              <td>32</td>
-              <td>31</td>
-              <td>28</td>
-              <td>32</td>
-              <td>32</td>
-              <td>6.91</td>
-              <td>242</td>
-              <td>1684800891</td>
-              <td>1684849611</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start">Kolkata</th>
-              <td>75</td>
-              <td>25</td>
-              <td>26</td>
-              <td>83</td>
-              <td>25</td>
-              <td>25</td>
-              <td>4.12</td>
-              <td>140</td>
-              <td>1684797826</td>
-              <td>1684845778</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start">Mumbai</th>
-              <td>40.6</td>
-              <td>30.6</td>
-              <td>36.6</td>
-              <td>74.6</td>
-              <td>30.6</td>
-              <td>30.6</td>
-              <td>3.6</td>
-              <td>290.6</td>
-              <td>1684801926.6</td>
-              <td>1684849130.6</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start">Ghaziabad</th>
-              <td>90</td>
-              <td>35</td>
-              <td>35</td>
-              <td>31</td>
-              <td>35</td>
-              <td>35</td>
-              <td>6.59</td>
-              <td>262</td>
-              <td>1684799751</td>
-              <td>1684849103</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
-  </div>
-
-  <br />
-  <br />
-
-<center><h5>© shashank-kumar-srivastava</h5></center>
-</div>
-<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
-
-</body>
+  </body>
 </html>
